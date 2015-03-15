@@ -84,6 +84,18 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)resetBadge: (CDVInvokedUrlCommand *)command
+{
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    //if (currentInstallation.badge != 0) {
+      currentInstallation.badge = 0;
+      [currentInstallation saveInBackground];
+      //NSLog([NSString stringWithFormat: @"%ld", (long)[UIApplication sharedApplication].applicationIconBadgeNumber ]);
+      [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    //}
+    // ...
+}
+
 @end
 
 @implementation AppDelegate (CDVParsePlugin)

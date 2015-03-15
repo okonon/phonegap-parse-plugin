@@ -30,12 +30,12 @@ Once the device is ready, call ```parsePlugin.initialize()```. This will registe
 parsePlugin.initialize(appId, clientKey, function() {
 
 	parsePlugin.subscribe('SampleChannel', function() {
-		
+
 		parsePlugin.getInstallationId(function(id) {
-		
+
 			/**
 			 * Now you can construct an object and save it to your own services, or Parse, and corrilate users to parse installations
-			 * 
+			 *
 			 var install_data = {
 			  	installation_id: id,
 			  	channels: ['SampleChannel']
@@ -50,7 +50,7 @@ parsePlugin.initialize(appId, clientKey, function() {
 	}, function(e) {
 		alert('error');
 	});
-	
+
 }, function(e) {
 	alert('error');
 });
@@ -67,26 +67,32 @@ Usage
 	}, function(e) {
 		alert('error');
 	});
-  
+
 	parsePlugin.getInstallationId(function(id) {
 		alert(id);
 	}, function(e) {
 		alert('error');
 	});
-	
+
 	parsePlugin.getSubscriptions(function(subscriptions) {
 		alert(subscriptions);
 	}, function(e) {
 		alert('error');
 	});
-	
+
 	parsePlugin.subscribe('SampleChannel', function() {
 		alert('OK');
 	}, function(e) {
 		alert('error');
 	});
-	
+
 	parsePlugin.unsubscribe('SampleChannel', function(msg) {
+		alert('OK');
+	}, function(e) {
+		alert('error');
+	});
+
+	parsePlugin.resetBadge(function() {
 		alert('OK');
 	}, function(e) {
 		alert('error');
