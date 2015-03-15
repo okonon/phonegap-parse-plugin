@@ -92,6 +92,8 @@
       [currentInstallation saveInBackground];
       //NSLog([NSString stringWithFormat: @"%ld", (long)[UIApplication sharedApplication].applicationIconBadgeNumber ]);
       [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+      pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+      [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     //}
     // ...
 }
